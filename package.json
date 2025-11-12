@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node src/app.js",
     "dev": "nodemon src/app.js",
-    "test": "jest --runInBand",
-    "lint": "eslint . --ext .js",
+    "test": "jest --runInBand --coverageProvider=v8",
+    "lint": "eslint . --ext .js --fix",
     "format": "prettier --write ."
   },
   "author": "EL AMRANI Amine",
