@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require('express');
 
 const {
   listCourses,
@@ -6,7 +6,7 @@ const {
   createCourse,
   deleteCourse,
   updateCourse,
-} = require("../controllers/coursesController");
+} = require('../controllers/coursesController');
 
 const router = express.Router();
 
@@ -26,7 +26,7 @@ const router = express.Router();
  *               items:
  *                 $ref: '#/components/schemas/Course'
  */
-router.get("/", listCourses);
+router.get('/', listCourses);
 
 /**
  * @swagger
@@ -51,7 +51,7 @@ router.get("/", listCourses);
  *       404:
  *         description: The course was not found
  */
-router.get("/:id", getCourse);
+router.get('/:id', getCourse);
 
 /**
  * @swagger
@@ -75,7 +75,7 @@ router.get("/:id", getCourse);
  *       400:
  *         description: Some parameters are missing or invalid
  */
-router.post("/", createCourse);
+router.post('/', createCourse);
 
 /**
  * @swagger
@@ -96,7 +96,7 @@ router.post("/", createCourse);
  *       404:
  *         description: The course was not found
  */
-router.delete("/:id", deleteCourse);
+router.delete('/:id', deleteCourse);
 
 /**
  * @swagger
@@ -123,10 +123,10 @@ router.delete("/:id", deleteCourse);
  *       400:
  *         description: The student or course was not found
  */
-router.post("/:courseId/students/:studentId", (req, res) => {
-  const result = require("../services/storage").enroll(
+router.post('/:courseId/students/:studentId', (req, res) => {
+  const result = require('../services/storage').enroll(
     req.params.studentId,
-    req.params.courseId
+    req.params.courseId,
   );
   if (result.error) return res.status(400).json({ error: result.error });
   return res.status(201).json({ success: true });
@@ -157,10 +157,10 @@ router.post("/:courseId/students/:studentId", (req, res) => {
  *       404:
  *         description: The enrollment was not found
  */
-router.delete("/:courseId/students/:studentId", (req, res) => {
-  const result = require("../services/storage").unenroll(
+router.delete('/:courseId/students/:studentId', (req, res) => {
+  const result = require('../services/storage').unenroll(
     req.params.studentId,
-    req.params.courseId
+    req.params.courseId,
   );
   if (result.error) return res.status(404).json({ error: result.error });
   return res.status(204).send();
@@ -195,6 +195,6 @@ router.delete("/:courseId/students/:studentId", (req, res) => {
  *       404:
  *         description: The course was not found
  */
-router.put("/:id", updateCourse);
+router.put('/:id', updateCourse);
 
 module.exports = router;

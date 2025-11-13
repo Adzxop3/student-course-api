@@ -1,9 +1,9 @@
 ---
 name: PR Template
 about: Template for pull requests
-title: ""
-labels: ""
-assignees: ""
+title: ''
+labels: ''
+assignees: ''
 ---
 
 ## Description

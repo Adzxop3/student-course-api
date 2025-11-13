@@ -1,11 +1,11 @@
-const express = require("express");
+const express = require('express');
 const {
   listStudents,
   getStudent,
   createStudent,
   deleteStudent,
   updateStudent,
-} = require("../controllers/studentsController");
+} = require('../controllers/studentsController');
 
 const router = express.Router();
 
@@ -25,7 +25,7 @@ const router = express.Router();
  *               items:
  *                 $ref: '#/components/schemas/Student'
  */
-router.get("/", listStudents);
+router.get('/', listStudents);
 
 /**
  * @swagger
@@ -50,7 +50,7 @@ router.get("/", listStudents);
  *       404:
  *         description: The student was not found
  */
-router.get("/:id", getStudent);
+router.get('/:id', getStudent);
 
 /**
  * @swagger
@@ -74,7 +74,7 @@ router.get("/:id", getStudent);
  *       400:
  *         description: Some parameters are missing or invalid
  */
-router.post("/", createStudent);
+router.post('/', createStudent);
 
 /**
  * @swagger
@@ -95,7 +95,7 @@ router.post("/", createStudent);
  *       404:
  *         description: The student was not found
  */
-router.delete("/:id", deleteStudent);
+router.delete('/:id', deleteStudent);
 
 /**
  * @swagger
@@ -126,6 +126,6 @@ router.delete("/:id", deleteStudent);
  *       404:
  *         description: The student was not found
  */
-router.put("/:id", updateStudent);
+router.put('/:id', updateStudent);
 
 module.exports = router;
